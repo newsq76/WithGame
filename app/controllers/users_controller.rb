@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_action :require_user_logged_in, only: [:show]
+  
   def index
   end
 
@@ -23,14 +26,24 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(current_user.id)
   end
 
   def update
+    @user = User.find(params[:id])
+    
+    if @user.update(user_params)
+      flash[:success] = 'Profileが更新されました。'
+      redirect_to @user
+    else
+      flash[:danger] = 'Profileは更新されませんでした。'
+      render :edit
+    end
   end
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile)
   end
 end
