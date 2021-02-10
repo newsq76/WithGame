@@ -1,0 +1,17 @@
+<ul class="list-unstyled p-3">
+  <% groupposts.each do |grouppost| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(grouppost.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to grouppost.user.name, user_path(grouppost.user) %> 
+          <span class="text-muted"><%= grouppost.created_at.to_s(:datetime_jp) %></span>
+        </div>
+        <div>
+          <p><%= grouppost.content %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate groupposts %>
+</ul>

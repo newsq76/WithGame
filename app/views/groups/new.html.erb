@@ -1,0 +1,12 @@
+<div class="text-center">
+  <h1 class="mt-4">Group Create</h1>
+</div>
+<div class="col-sm-6 offset-sm-3">
+  <%= form_with(model: @group, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'GroupName' %>
+    <%= f.text_area :name, class: 'form-control', rows: 1 %>
+  </div>
+    <%= f.submit 'Create', class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div>

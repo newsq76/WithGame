@@ -9,5 +9,15 @@ Rails.application.routes.draw do
  post 'login', to: 'sessions#create'
  delete 'logout', to: 'sessions#destroy'
  
- resources :users, only: [:index, :show, :new, :create, :edit, :update]
+ post 'groupposts/create' => 'groupposts#create', as: :grouppost_create
+ 
+ resources :users, only: [:index, :show, :new, :create, :edit, :update] do
+   member do
+    get :favoritegroups
+   end
+ end
+ 
+ resources :groups, only: [:index, :show, :new, :create, :destroy]
+ resources :groupposts, only: [:new, :create, :destroy]
+ resources :group_users, only: [:create, :destroy]
 end

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favoritegroups = @user.favoritegroups.page(params[:page])
   end
 
   def new
@@ -39,6 +40,11 @@ class UsersController < ApplicationController
       flash[:danger] = 'Profileは更新されませんでした。'
       render :edit
     end
+  end
+  
+  def favoritegroups
+    @user = User.find_by(params[:id])
+    @favoritegroups = @user.favoritegroups.page(params[:page])
   end
   
   private
