@@ -1,27 +1,15 @@
 <div class="row">
-  <div class="col-sm-10 offset-sm-1">
+  <div class="col-sm-8 offset-sm-2">
     <div class="row justify-content-center">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="mt-4">
           <img class="card-img-top rounded w-50" src="<%= gravatar_url(@user, { size: 50 }) %>" alt=""></li>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
          <h3 class="font-weight-bold mt-4"><%= @user.name %></h3>
          <div><%= @user.profile %></div>
-         <%= link_to 'Edit', edit_profile_path, class: 'btn btn-primary btn-inlineblock w-50' %>
-      </div>
-      <div class="col-sm-3">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title block-center">Favorites</h3>
-          </div>
-          <div class="card-body min-vh-100">
-            <div>
-              <%= render :template => 'users/favoritegroups' %>
-            </div>
-          </div>
-        </div>
+         <%= link_to 'Edit', edit_profile_path, class: 'btn btn-primary btn-inlineblock w-50 mt-4' %>
       </div>
     </div>
   </div>
