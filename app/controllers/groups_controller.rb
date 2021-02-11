@@ -20,10 +20,8 @@ class GroupsController < ApplicationController
     @group = current_user.groups.build(group_params)
     
     if @group.save
-      flash[:success] = 'Groupが作成されました。'
       redirect_to root_url
     else
-      flash.now[:danger] = 'Groupが作成されませんでした。'
       render :new
     end
   end
@@ -32,7 +30,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
     
-    flash[:success] = 'Groupは削除されました。'
     redirect_to root_url
   end
   

@@ -34,10 +34,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update(user_params)
-      flash[:success] = 'Profileが更新されました。'
       redirect_to @user
     else
-      flash[:danger] = 'Profileは更新されませんでした。'
       render :edit
     end
   end
