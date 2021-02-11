@@ -9,7 +9,9 @@
       <div class="col-sm-6">
          <h3 class="font-weight-bold mt-4"><%= @user.name %></h3>
          <div><%= @user.profile %></div>
-         <%= link_to 'Edit', edit_profile_path, class: 'btn btn-primary btn-inlineblock w-50 mt-4' %>
+         <% if current_user == @user %>
+           <%= link_to 'Edit', edit_profile_path, class: 'btn btn-primary btn-inlineblock w-50 mt-4' %>
+         <% end %>
       </div>
     </div>
   </div>
