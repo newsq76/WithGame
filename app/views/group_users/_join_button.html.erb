@@ -1,14 +1,14 @@
 <% if current_user.likes?(group) %>
-  <%= form_with(model: current_user.group_users.find_by(group_id: group.id), local: true, method: :delete) do |f| %>
+  <%= form_with(model: current_user.group_users.find_by(group_id: group.id), local: true, class: 'd-inline', method: :delete) do |f| %>
     <%= hidden_field_tag :group_id, group.id %>
-    <%= f.button :type => 'submit', style: 'border-style: none;', class: 'btn btn-white' do %>
+    <%= f.button :type => 'submit', style: 'border-style: none;', class: 'btn btn-white btn-inline' do %>
       <i class="fas fa-heart"></i>
     <% end %>
   <% end %>
 <% else %>
-  <%= form_with(model: current_user.group_users.build, local: true) do |f| %>
+  <%= form_with(model: current_user.group_users.build, local: true, class: 'd-inline') do |f| %>
     <%= hidden_field_tag :group_id, group.id %>
-    <%= f.button :type => 'submit', style: 'border-style: none;', class: 'btn btn-white' do %>
+    <%= f.button :type => 'submit', style: 'border-style: none;', class: 'btn btn-white btn-inline' do %>
       <i class="far fa-heart"></i>
     <% end %>
   <% end %>

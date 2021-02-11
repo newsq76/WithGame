@@ -21,9 +21,25 @@
     <%= render 'layouts/navbar' %>
 
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
     </div>
+    <% if logged_in? %>
+      <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title font-weught-bold" id="myModalLabel">Favorites</h4>
+            </div>
+            <div class="modal-body">
+              <%= render :template => 'users/favoritegroups' %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </body>
 </html>

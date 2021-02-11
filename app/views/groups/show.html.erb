@@ -5,15 +5,15 @@
 </div>
 <div class="fixed-bottom">
   <div class="container">
-    <div class="row">
+    <div class="row xs-justify-content-center">
       <div class="col-xs-12 col-sm-8 offset-sm-2">
         <%= form_with(model: @newgrouppost, url: grouppost_create_path, local: true) do |f| %>
           <div class="row justify-content-center">
-            <span class="col-xs-11 col-sm-11 p-0 m-0">
+            <span class="col-10 p-0 m-0">
               <%= f.text_area :content, class: 'form-control', rows: 1 %>
               <%= f.hidden_field :group_id %>
             </span>
-            <span class="col-xs-1 col-sm-1 p-0 m-0">
+            <span class="col-2 p-0 m-0">
               <%= f.button :type => 'submit', style: 'border-style: none;', class: 'btn btn-secondary' do %>
                 <i class="far fa-paper-plane fa-lg"></i>
               <% end %>

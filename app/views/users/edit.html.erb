@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-6">
+  <div class="col-sm-6 offset-sm-3">
+  <div class="text-center">
+    <h3>Plofile Edit</h3>
+  </div>
     <%= form_with(model: @user, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
 
@@ -13,7 +16,7 @@
         <%= f.text_field :profile, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Update', class: 'btn btn-primary' %>
+      <%= f.submit 'Update', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>

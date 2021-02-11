@@ -1,11 +1,5 @@
-<% @favoritegroups.each do |favoritegroup| %>
-  <div class="mt-4">
-    <span>
-      <%= link_to favoritegroup.name, group_path(favoritegroup), class: 'btn btn-secondary' %>
-    </span>
-    <span>
-      <%= render 'group_users/join_button', group: favoritegroup%>
-    </span>
+<% current_user.favoritegroups.each do |favoritegroup| %>
+  <div class="mt-2">
+    <%= link_to favoritegroup.name, group_path(favoritegroup), class: 'btn btn-secondary' %>
   </div>
-  <%= paginate @favoritegroups %>
 <% end %>
